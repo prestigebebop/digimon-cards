@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+
+h1, h3 {
+    font-family: 'Shadows Into Light', 'Permanent Marker', 'Montserrat Alternates', sans-serif, cursive;
+    color: #dba451;
+    font-weight: 800;
+}
+
+.searchInput {
+    margin-bottom: 50px;
+}
+
+img {
+    background-color: black;
+}
