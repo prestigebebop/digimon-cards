@@ -35,6 +35,7 @@ function App () {
 
     return (
         <div>
+            <h1>Digimon Cards</h1>
             {
                 digimonsArray.length === 0 &&
                 <h1>LOADING DIGIMONS...</h1>
