@@ -8,7 +8,7 @@ import './App.css';
 function App () {
     const [searchDigimonsField, setSearchDigimonsField] = React.useState('');
     const [digimonsArray, setDigimonsArray] = React.useState([]);
-   
+    const [filteredDigimons, setFilteredDigimons] = React.useState(digimonsArray);
 
     React.useEffect(() => {
         async function fetchDigimons(){
@@ -23,15 +23,18 @@ function App () {
         fetchDigimons();
     }, []);
 
+    React.useEffect(() => {
+        const newFilteredDigimons = digimonsArray.filter((digimon, i) => {
+            return digimon.name.toLowerCase().includes(searchDigimonsField.toLowerCase()) || digimon.level.toLowerCase().includes(searchDigimonsField.toLowerCase());
+        });
+        setFilteredDigimons(newFilteredDigimons);
+        console.log(newFilteredDigimons);
+    }, [digimonsArray, searchDigimonsField]); // only filter through digimonsArray whenever digimonsArray or searchDigimonsField changes
+
     const onSearchChange = (event) => {
         const {value} = event.target;
         setSearchDigimonsField(value);
-    }
-
-    const filteredDigimons = digimonsArray.filter((digimon, i) => {
-        return digimon.name.toLowerCase().includes(searchDigimonsField.toLowerCase()) || digimon.level.toLowerCase().includes(searchDigimonsField.toLowerCase());
-    });
-    
+    };
 
     return (
         <div>
